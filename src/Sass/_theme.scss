@@ -1,0 +1,16 @@
+:root {
+  --background-main-color: #{$very-light-gray-background};
+  --background-item-color: #{$white};
+  --background-navbar-color: #{$white};
+  --font-main-color: #{$black};
+  --search-logo: #{$dark-gray-light};
+}
+
+.dark-theme {
+  --background-main-color: #{$very-dark-blue-background};
+  --background-item-color: #{$dark-blue-elements};
+  --background-navbar-color: #{$dark-blue-elements};
+  --font-secondary-color: #{$light-gray-font};
+  --font-main-color: #{$white};
+  --search-logo: #{$white};
+}
