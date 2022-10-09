@@ -7,9 +7,11 @@ const Filter = () => {
   return (
     <div className="filters-container-filter">
       <select
+        className="filter-select"
         name="filter"
         id="filter"
         onChange={(e) => setFilter(e.target.value)}
+        /* styles={colourStyles} */
       >
         <option value="" defaultValue={""}>
           Filter by region

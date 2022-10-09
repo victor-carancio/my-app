@@ -65,7 +65,7 @@
       width: 12.5rem;
       height: 3.75rem;
     }
-    select {
+    .filter-select {
       cursor: pointer;
       /* appearance: none; */
       color: var(--font-main-color);
@@ -83,10 +83,15 @@
         width: 100%;
       }
 
+      &::selection {
+        border: none;
+      }
+
       &:focus {
         outline: none;
         border: none;
       }
+
       &::-ms-expand {
         display: none;
       }

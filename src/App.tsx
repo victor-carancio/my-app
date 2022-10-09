@@ -15,9 +15,12 @@ function App() {
     <main className={isDark ? "dark-theme" : ""}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SharedNavbar />}>
+          <Route path="/rest-countries-api" element={<SharedNavbar />}>
             <Route index element={<Home />} />
-            <Route path="country/:id" element={<CountryDetailPage />} />
+            <Route
+              path="/rest-countries-api/country/:id"
+              element={<CountryDetailPage />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

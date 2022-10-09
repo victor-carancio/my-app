@@ -11,12 +11,12 @@ const CountryItem = ({ country }: Props) => {
 
   return (
     <div className="country-container-country">
-      <Link to={`/country/${name}`} className="link-img">
+      <Link to={`/rest-countries-api/country/${name}`} className="link-img">
         <img src={flag} alt={name} />
       </Link>
 
       <div className="info-container">
-        <Link to={`/country/${name}`} className="link-title">
+        <Link to={`/rest-countries-api/country/${name}`} className="link-title">
           <h2>{name}</h2>
         </Link>
 

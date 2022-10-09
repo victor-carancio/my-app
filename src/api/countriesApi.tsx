@@ -58,8 +58,9 @@ export const getCountryDetail = async (id: string) => {
 
     const responseAll = await fetch(`${urlAll}`);
     const countryBorders = await responseAll.json();
+
     const findBorder = (border: string) => {
-      const borderDetail = countryBorders.find(({ fifa, cca3 }: any) => {
+      const borderDetail = countryBorders.find(({ cca3 }: any) => {
         if (cca3 == border) {
           return cca3;
         } else {
