@@ -5,6 +5,7 @@ import ErrorSearch from "./ErrorSearch";
 import Loading from "./loading";
 
 const CountryContainer = () => {
+  //asd
   const { countries, loading } = useGlobalContext();
   if (loading) {
     return <Loading />;
