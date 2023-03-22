@@ -1,7 +1,6 @@
 import React from "react";
 import Country from "../interfaces/Country";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "../contexts/context";
 
 interface Props {
   country: Country;

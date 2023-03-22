@@ -1,12 +1,21 @@
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useGlobalContext } from "../contexts/context";
+
+import { useCustomDispatch } from "../hooks/redux";
+import { useState } from "react";
+import { setSearch } from "../features/country/countrySlice";
 
 const Search = () => {
-  const { search, setSearch } = useGlobalContext();
+  const dispatch = useCustomDispatch();
+  const [searchInput, setSearchInput] = useState("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (searchInput !== "") {
+      dispatch(setSearch(searchInput));
+      setSearchInput("");
+      return;
+    }
   };
   return (
     <form onSubmit={handleSubmit} className="filters-container-search">
@@ -14,8 +23,8 @@ const Search = () => {
       <input
         type="text"
         placeholder="Search for a country"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
       />
     </form>
   );

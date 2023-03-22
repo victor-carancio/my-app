@@ -1,6 +1,5 @@
 import Search from "../components/search";
 import Filter from "../components/Filter";
-import { data } from "../data";
 import CountryContainer from "../components/countryContainer";
 const Home = () => {
   return (

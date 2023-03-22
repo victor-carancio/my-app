@@ -1,4 +1,3 @@
-import React from "react";
 import CountryDetailType from "../interfaces/countryDetailType";
 import { Link } from "react-router-dom";
 import { CgArrowLongLeft } from "react-icons/cg";

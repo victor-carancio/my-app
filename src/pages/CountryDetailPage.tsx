@@ -1,19 +1,22 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useGlobalContext } from "../contexts/context";
+import { useParams } from "react-router-dom";
 import Loading from "../components/loading";
 import CountryDetail from "../components/CountryDetail";
+import { useCustomDispatch, useCustomSelector } from "../hooks/redux";
+import { getCountryDetails } from "../features/country/countrySlice";
 
-const url = "https://restcountries.com/v3.1/name/";
 const CountryDetailPage = () => {
-  const { fetchCountryDetail, countryDetails, loading } = useGlobalContext();
-  const { id } = useParams();
+  const dispatch = useCustomDispatch();
+  const { countryDetails, isLoading } = useCustomSelector(
+    (store) => store.country
+  );
+  const { id }: any = useParams();
 
   useEffect(() => {
-    fetchCountryDetail(id);
+    dispatch(getCountryDetails(id));
   }, [id]);
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />;
   }
   return (

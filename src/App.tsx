@@ -4,12 +4,20 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SharedNavbar from "./pages/sharedNav";
 import Home from "./pages/Home";
-import { useState } from "react";
-import { useGlobalContext } from "./contexts/context";
+import { useEffect } from "react";
+import { useCustomSelector, useCustomDispatch } from "./hooks/redux";
 import CountryDetailPage from "./pages/CountryDetailPage";
+import { getCountryList } from "./features/country/countrySlice";
 
 function App() {
-  const { isDark } = useGlobalContext();
+  const dispatch = useCustomDispatch();
+  const { isDark, search, filter } = useCustomSelector(
+    (store) => store.country
+  );
+
+  useEffect(() => {
+    dispatch(getCountryList());
+  }, [search, filter]);
 
   return (
     <main className={isDark ? "dark-theme" : ""}>

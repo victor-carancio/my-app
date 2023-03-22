@@ -20,10 +20,12 @@ export const getCountries = async (search: string) => {
             flag: flags.svg,
           };
         })
+        .sort((a: any, b: any) => (a.name > b.name ? 1 : -1))
         .slice(0, 50);
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    return [];
   }
 };
 
@@ -34,8 +36,8 @@ export const getFilterCountries = async (filter: string) => {
     /* console.log(countryData); */
     const { countriesData } = countryData;
     if (countryData) {
-      return countryData.map(
-        ({ name, population, region, capital, flags }: any) => {
+      return countryData
+        .map(({ name, population, region, capital, flags }: any) => {
           return {
             name: name.common,
             population,
@@ -43,8 +45,8 @@ export const getFilterCountries = async (filter: string) => {
             capital,
             flag: flags.svg,
           };
-        }
-      );
+        })
+        .sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
     }
   } catch (error) {
     console.log(error);
@@ -71,41 +73,43 @@ export const getCountryDetail = async (id: string) => {
     };
 
     if (countryData) {
-      return countryData.map(
-        ({
-          name,
-          nativeName,
-          population,
-          region,
-          subregion,
-          capital,
-          tld,
-          currencies,
-          languages,
-          flags,
-          borders,
-        }: any) => {
-          return {
-            name: name.common,
-            nativeName: name.official,
+      return countryData
+        .map(
+          ({
+            name,
+            nativeName,
             population,
             region,
             subregion,
             capital,
             tld,
-            languages: Object.values(languages),
-            currencies: Object.keys(currencies).map((item: string) => {
-              return currencies[item].name;
-            }),
-            borders: borders
-              ? Object.values(borders).map((item: any) => {
-                  return findBorder(item);
-                })
-              : "",
-            flag: flags.svg,
-          };
-        }
-      );
+            currencies,
+            languages,
+            flags,
+            borders,
+          }: any) => {
+            return {
+              name: name.common,
+              nativeName: name.official,
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              languages: Object.values(languages),
+              currencies: Object.keys(currencies).map((item: string) => {
+                return currencies[item].name;
+              }),
+              borders: borders
+                ? Object.values(borders).map((item: any) => {
+                    return findBorder(item);
+                  })
+                : "",
+              flag: flags.svg,
+            };
+          }
+        )
+        .sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
     }
   } catch (error) {
     console.log(error);

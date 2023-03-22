@@ -1,16 +1,17 @@
 import { BsMoon, BsMoonFill } from "react-icons/bs";
-import { useGlobalContext } from "../contexts/context";
+
+import { darkMode } from "../features/country/countrySlice";
+
+import { useCustomDispatch, useCustomSelector } from "../hooks/redux";
 
 const Navbar = () => {
-  const { isDark, setIsDark } = useGlobalContext();
+  const { isDark } = useCustomSelector((store) => store.country);
+  const dispatch = useCustomDispatch();
 
-  const changeTheme = () => {
-    setIsDark(!isDark);
-  };
   return (
     <nav className="nav-container">
       <h2>Where in the world?</h2>
-      <div className="mode" onClick={() => changeTheme()}>
+      <div className="mode" onClick={() => dispatch(darkMode())}>
         {isDark ? (
           <BsMoonFill className="moon-logo" />
         ) : (

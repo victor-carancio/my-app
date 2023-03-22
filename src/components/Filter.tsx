@@ -1,8 +1,12 @@
-import React from "react";
-import { useGlobalContext } from "../contexts/context";
-import { CgArrowLongLeft } from "react-icons/cg";
+import { useCustomDispatch } from "../hooks/redux";
+import { setFilter, clearFilters } from "../features/country/countrySlice";
 const Filter = () => {
-  const { setFilter } = useGlobalContext();
+  const dispatch = useCustomDispatch();
+
+  const handleFilter = (e: any) => {
+    dispatch(clearFilters());
+    dispatch(setFilter(e.target.value));
+  };
 
   return (
     <div className="filters-container-filter">
@@ -10,7 +14,7 @@ const Filter = () => {
         className="filter-select"
         name="filter"
         id="filter"
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={handleFilter}
         /* styles={colourStyles} */
       >
         <option value="" defaultValue={""}>
