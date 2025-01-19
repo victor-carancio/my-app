@@ -4,7 +4,6 @@
     width: 100%;
     color: var(--font-main-color);
     @include breakpoint-up(large) {
-      height: 90vh;
       padding-bottom: 20px;
     }
     .btn-link {

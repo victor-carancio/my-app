@@ -4,6 +4,7 @@ import Loading from "../components/loading";
 import CountryDetail from "../components/CountryDetail";
 import { useCustomDispatch, useCustomSelector } from "../hooks/redux";
 import { getCountryDetails } from "../features/country/countrySlice";
+import ErrorSearch from "../components/ErrorSearch";
 
 const CountryDetailPage = () => {
   const dispatch = useCustomDispatch();
@@ -18,6 +19,9 @@ const CountryDetailPage = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+  if (!countryDetails) {
+    return <ErrorSearch />;
   }
   return (
     <section className="country-detail">

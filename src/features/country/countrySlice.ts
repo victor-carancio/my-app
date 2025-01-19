@@ -50,7 +50,8 @@ export const getCountryDetails = createAsyncThunk(
   "country/getCountryDetail",
   async (data: string) => {
     try {
-      const response = await getCountryDetail(data);
+      const response: any = await getCountryDetail(data);
+
       return response;
     } catch (error) {
       console.log(error);
