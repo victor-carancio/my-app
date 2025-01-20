@@ -1,13 +1,13 @@
 import React from "react";
 import { CgArrowLongLeft } from "react-icons/cg";
-import { TbFaceIdError } from "react-icons/tb";
+import { TbError404 } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
-const ErrorSearch = () => {
+export const NotFound = () => {
   return (
-    <div className="error-search-container">
-      <TbFaceIdError className="error-icon" />
-      <h2>No country matched your search criteria</h2>
+    <div className="not-found-container">
+      <TbError404 className="not-found-icon" />
+      <h2>Page not Found</h2>
       <Link to="/" className="btn-link">
         <button className="btn-back">
           <CgArrowLongLeft className="arrow-icon" />
@@ -17,5 +17,3 @@ const ErrorSearch = () => {
     </div>
   );
 };
-
-export default ErrorSearch;

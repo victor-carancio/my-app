@@ -9,6 +9,8 @@ import { useCustomSelector, useCustomDispatch } from "./hooks/redux";
 import CountryDetailPage from "./pages/CountryDetailPage";
 import { getCountryList } from "./features/country/countrySlice";
 
+import { NotFound } from "./components/NotFound";
+
 function App() {
   const dispatch = useCustomDispatch();
   const { isDark, search, filter } = useCustomSelector(
@@ -23,12 +25,10 @@ function App() {
     <main className={isDark ? "dark-theme" : ""}>
       <BrowserRouter>
         <Routes>
-          <Route path="/rest-countries-api" element={<SharedNavbar />}>
+          <Route path="/" element={<SharedNavbar />}>
             <Route index element={<Home />} />
-            <Route
-              path="/rest-countries-api/country/:id"
-              element={<CountryDetailPage />}
-            />
+            <Route path="/country/:id" element={<CountryDetailPage />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

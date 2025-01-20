@@ -25,7 +25,7 @@ const CountryDetail = ({ countryDetail }: Props) => {
     <div className="country-detail-container">
       <div className="info-container">
         <div>
-          <Link to="/rest-countries-api" className="btn-link">
+          <Link to="/" className="btn-link">
             <button className="btn-back">
               <CgArrowLongLeft className="arrow-icon" />
               Back
@@ -106,7 +106,7 @@ const CountryDetail = ({ countryDetail }: Props) => {
                     return (
                       <Link
                         key={index}
-                        to={`/rest-countries-api/country/${item}`}
+                        to={`/country/${item}`}
                         className="border-link"
                       >
                         <div className="border-span">{item}</div>
